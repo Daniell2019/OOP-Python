@@ -107,7 +107,7 @@ class matricula:
         pass
 
 
-class Curso:
+class curso:
     def __init__(self):
         self.titulo = ""
         self.descricao = ""
