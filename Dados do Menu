@@ -1,6 +1,6 @@
 import pickle
 
-def coletar_informacoes():
+def informacoes_funcionario():
     nome = input('Nome: ')
     rg = input('Rg:')
     cpf = input('cpf: ')
@@ -13,29 +13,29 @@ def coletar_informacoes():
     return dados
 
 
-def cadastrar_pessoas():
+def cadastrar_funcionario():
     
     try:
-        with open('dados_pessoas') as pessoas:
+        with open('dados_funcioanrio') as funcionario:
             antigos_pessoas = pickle.load(pessoas)
-        with open('dados_pessoas', mode='wb') as dados_pessoas:
+        with open('dados_pessoas', mode='wb') as dados_funcionario:
             antigos_pessoas.append(coletar_informacoes())
-            novos_pessoas = pickle.dumps(antigos_pessoas)
-            dados_pessoas.write(novos_pessoas)
+            novos_funcionarios = pickle.dumps(antigos_pessoas)
+            dados_funcionarios.write(novos_funcionarios)
     except:
-        with open('dados_pessoas', mode='wb') as dados_pessoas:
-            novos_pessoas = [coletar_informacoes()]
-            pessoas = pickle.dumps(novos_pessoas)
-            dados_pessoas.write(pessoas)
+        with open('dados_funcionario', mode='wb') as dados_funcionario:
+            novos_funcionarios = [coletar_informacoes()]
+            funcionarios = pickle.dumps(novos_funcionarios)
+            dados_funcionarios.write(funcionarios)
 
 
-def listar_pessoas():
+def listar_funcionarios():
     try:
-        with open('dados_pessoas', mode='rb') as dados_pessoas:
-            lista_pessoas = pickle.load(dados_pessoas)
-            print('pessoas\n')
-            for pessoa in lista_pessoas:
-                print(pessoa['name'])
+        with open('dados_funcionarios', mode='rb') as dados_funcionario:
+            lista_funcionarios = pickle.load(dados_pessoas)
+            print('funcionarios\n')
+            for pessoa in lista_funcionarios:
+                print(funcionario['name'])
         print('-' * 20)
     except:
         print('Não encontrado!')
